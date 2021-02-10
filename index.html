@@ -51,8 +51,6 @@
         makeCircle();
       }
       function draw() {
-        console.log(modeToggle);
-        
         if(modeToggle){
           backGroundColor = 'rgb(163,204,163)';
         } else{
@@ -63,6 +61,8 @@
           noStroke();
           if(modeToggle)
             fill('#ffc0cb');
+          else
+            fill('#fff');
           circle(posX[i], posY[i], size[i]);
           posX[i] += parseInt(0.1);
           posY[i] += parseInt(1.5) - random(0.75);
