@@ -28,13 +28,15 @@
   </style>
   <body>
     <div class="container">
-      <span class="text">눈이 와요.</span>
+      <span class="text">눈.</span>
     </div>
     <script>
       let pos = 0;
       let posX = [];
       let posY = [];
       let size = [];
+      let modeToggle = false;
+      let backGroundColor = 0;
       function makeCircle() {
         for (let i = 0; i < 300; i++) {
           posX[i] = random(windowWidth);
@@ -45,12 +47,22 @@
       function setup() {
         frameRate(60);
         createCanvas(windowWidth, windowHeight);
-        background(0);
+        background(backGroundColor);
         makeCircle();
       }
       function draw() {
-        background(0);
+        console.log(modeToggle);
+        
+        if(modeToggle){
+          backGroundColor = 'rgb(163,204,163)';
+        } else{
+          backGroundColor = 0;
+        }
+        background(backGroundColor);
         for (let i = 0; i < 300; i++) {
+          noStroke();
+          if(modeToggle)
+            fill('#ffc0cb');
           circle(posX[i], posY[i], size[i]);
           posX[i] += parseInt(0.1);
           posY[i] += parseInt(1.5) - random(0.75);
@@ -62,6 +74,13 @@
       }
       function mousePressed() {
         makeCircle();
+        modeToggle = !modeToggle;
+        let text = document.querySelector(".text");
+        if(modeToggle){
+          text.innerText = "벚꽃.";
+        } else {
+          text.innerText = "눈.";
+        }
       }
       // setup();
     </script>
