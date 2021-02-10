@@ -6,17 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>p5js</title>
   </head>
+  <style>
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+    }
+  </style>
   <body>
     <script>
+      let pos = 0;
+      let posX = [];
+      let posY = [];
+      let size = [];
+      function makeCircle(){
+        for (let i = 0; i < 1000; i++){
+          posX.push(random(windowWidth));
+          posY.push(random(-1000));
+          size.push(random(10));
+        }
+        
+      }
       function setup() {
-        createCanvas(400, 400);
+        frameRate(60);
+        createCanvas(windowWidth, windowHeight);
+        background(0);
+        makeCircle();
       }
-
       function draw() {
-        background(220);
+        background(0);
+        for(let i = 0; i < 1000; i++){
+          circle(posX[i], posY[i], size[i]);
+          posX[i] += parseInt(random(1.1));
+          posY[i] += parseInt(random(5));
+        }
       }
-      setup();
-      draw();
+      // setup();
     </script>
   </body>
 </html>
