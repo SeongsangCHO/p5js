@@ -37,8 +37,8 @@
         background(0);
         for(let i = 0; i < 1000; i++){
           circle(posX[i], posY[i], size[i]);
-          posX[i] += parseInt(random(1.1));
-          posY[i] += parseInt(random(5));
+          posX[i] += (parseInt(0.1) + (random(0.1)));
+          posY[i] += parseInt(1.5) - random(1);
         }
       }
       function mousePressed(){
