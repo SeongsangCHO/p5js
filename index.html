@@ -25,10 +25,25 @@
       height: 100%;
       color: #fff;
     }
+    .footer{
+      width: 130px;
+      position:fixed;
+      top: 100%;
+      left: 100%;
+      transform: translate(-100%, -100%);
+    }
+    .text2 {
+      font-size: 1rem;
+      opacity: .5;
+      color: #fff;
+    }
   </style>
   <body>
     <div class="container">
       <span class="text">눈.</span>
+    </div>
+    <div class="footer">
+      <span class="text2">클릭시 다른 모드도..</span>
     </div>
     <script>
       let pos = 0;
@@ -73,7 +88,7 @@
         }
       }
       function mousePressed() {
-        makeCircle();
+        // makeCircle();
         modeToggle = !modeToggle;
         let text = document.querySelector(".text");
         if(modeToggle){
