@@ -21,7 +21,7 @@
       let posY = [];
       let size = [];
       function makeCircle(){
-        for (let i = 0; i < 1000; i++){
+        for (let i = 0; i < 300; i++){
           posX[i] = (random(windowWidth));
           posY[i] = (random(-1000));
           size[i] = (random(10));
@@ -35,10 +35,14 @@
       }
       function draw() {
         background(0);
-        for(let i = 0; i < 1000; i++){
+        for(let i = 0; i < 300; i++){
           circle(posX[i], posY[i], size[i]);
-          posX[i] += (parseInt(0.1) + (random(0.1)));
+          posX[i] += (parseInt(0.1));
           posY[i] += parseInt(1.5) - random(1);
+          if(posY[i] >= windowHeight){
+            posY[i] = (random(-1000));
+            posX[i] = (random(windowWidth));
+          }
         }
       }
       function mousePressed(){
